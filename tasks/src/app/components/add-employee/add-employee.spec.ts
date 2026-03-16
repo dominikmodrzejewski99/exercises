@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideNoopAnimations } from '@angular/platform-browser/animations';
 
 import { AddEmployee } from './add-employee';
 
@@ -8,7 +9,8 @@ describe('AddEmployee', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddEmployee]
+      imports: [AddEmployee],
+      providers: [provideNoopAnimations()],
     })
     .compileComponents();
 

@@ -9,8 +9,8 @@ import {Employee} from '../models/employee.model';
 export class EmployeeService {
   private http: HttpClient = inject(HttpClient);
 
-  public addEmployee(data: Omit<Employee, 'id'>) {
-    this.http.post('/api/employees', data).pipe(
+  public addEmployee(data: Omit<Employee, 'id'>): Observable<Employee[]> {
+    return this.http.post<Employee[]>('/api/employees', data).pipe(
       catchError(() => of([]))
     );
   }
