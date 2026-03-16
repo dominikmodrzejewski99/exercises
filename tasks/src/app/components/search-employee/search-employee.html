@@ -1,0 +1,9 @@
+<div class="search-employee__container">
+  <input nz-input placeholder="Search employees" [formControl]="searchControl" />
+
+  @for (employee of searchEmployees$ | async; track employee.id) {
+    <p>{{ employee.firstName}} {{employee.lastName}}</p>
+  }
+</div>
+
+
