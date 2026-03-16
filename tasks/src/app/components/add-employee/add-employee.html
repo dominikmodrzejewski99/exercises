@@ -1,0 +1,44 @@
+<form class="form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+  <div>
+    <div class="form__field">
+      <label>First name</label>
+      <input nz-input placeholder="First name" formControlName="firstName"/>
+    </div>
+
+    <div class="form__field">
+      <label>Last name</label>
+      <input nz-input placeholder="Last name" formControlName="lastName"/>
+    </div>
+
+    @if (employeeForm.errors?.['nameError']) {
+      <p class="form__error">First name and last name have to be not be the same</p>
+    }
+  </div>
+
+  <div class="form__field">
+    <label>Position</label>
+    <nz-select nzPlaceHolder="Position" formControlName="position">
+      <nz-option nzValue="frontend" nzLabel="Frontend"/>
+      <nz-option nzValue="backend" nzLabel="Backend"/>
+      <nz-option nzValue="disabled" nzLabel="DevOps"/>
+    </nz-select>
+  </div>
+
+  <div formGroupName="address" class="form__group">
+    <label>Address</label>
+
+    <div class="form__field">
+      <input nz-input placeholder="Street" formControlName="street"/>
+    </div>
+
+    <div class="form__field">
+      <input nz-input placeholder="City" formControlName="city"/>
+    </div>
+
+  </div>
+
+  <div class="form__field">
+    <button type="submit" [disabled]="employeeForm.invalid" nz-button nzType="primary">Add employee</button>
+  </div>
+
+</form>

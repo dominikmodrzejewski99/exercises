@@ -1,16 +1,12 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {NzInputDirective} from 'ng-zorro-antd/input';
+import { Component } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {AddEmployee} from './components/add-employee/add-employee';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NzInputDirective, FormsModule],
+  imports: [FormsModule, AddEmployee],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  public value: string | undefined;
-
-  protected readonly title = signal('tasks');
 }
